@@ -8,14 +8,25 @@ function LastItemInDb(){
     const response = await fetch('http://localhost:3050/gauchitoAPIS/productos');
     const datos = await response.json();
     setProduct(datos.data);
+    fetchLastProduct(datos.data.length - 1)
     };
+
+    const [lastProduct, setLastProduct] = useState()
+
+    const fetchLastProduct = async (id) => {
+        const response = await fetch('http://localhost:3050/gauchitoAPIS/productos/' + id);
+        const datos = await response.json();
+        setLastProduct(datos);
+        };
 
     useEffect(() => {
         fetchDataList();
         }, []);
     
     let arrayProductos = product[product.length - 1];
-    console.log(arrayProductos)
+    if(!lastProduct){
+        return <p>loading</p>
+    }
     
     return(
         <React.Fragment>
@@ -26,8 +37,8 @@ function LastItemInDb(){
                 </div>
                 <div className="card-body">
                     <div className="text-center">
-                    <h2>{`${arrayProductos.name}`}</h2>    
-                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 40 +'rem'}} src={`${arrayProductos.image} `} alt={`${arrayProductos.name} `}/>
+                    <h2>{lastProduct.data.name}</h2>    
+                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 40 +'rem'}} src={lastProduct.urlImage} alt={`${arrayProductos.name} `}/>
                     </div>
                     <p>{`${arrayProductos.description}`}</p>
                     <a className="btn btn-danger" target="_blank" rel="nofollow" href={`http://localhost:3050/gauchitoAPIS/productos/${arrayProductos.id}`}>Detalle</a>
