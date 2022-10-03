@@ -1,6 +1,6 @@
 import React from 'react';
 import imagenFondo from '../assets/images/mandalorian.jpg';
-import GenresInDb from './GenresInDb';
+import CategoriesInDb from './CategoriesInDb';
 import ContentRowItems from './ContentRowItems';
 import LastItemInDb from './lastItemInDb';
 
@@ -26,7 +26,7 @@ function ContentRowTop(){
 						{/*<!-- End content row last item in Data Base -->*/}
 
 						{/*<!-- Genres in DB -->*/}
-						<GenresInDb />
+						<CategoriesInDb />
 
 						{/*<!--End Genres In Db-->*/}		
 					</div>
