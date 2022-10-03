@@ -15,6 +15,7 @@ function LastItemInDb(){
         }, []);
     
     let arrayProductos = product[product.length - 1];
+    console.log(arrayProductos)
     
     return(
         <React.Fragment>
@@ -26,7 +27,7 @@ function LastItemInDb(){
                 <div className="card-body">
                     <div className="text-center">
                     <h2>{`${arrayProductos.name}`}</h2>    
-                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 40 +'rem'}} src={`${arrayProductos.image_1} `} alt={`${arrayProductos.name} `}/>
+                        <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 40 +'rem'}} src={`${arrayProductos.image} `} alt={`${arrayProductos.name} `}/>
                     </div>
                     <p>{`${arrayProductos.description}`}</p>
                     <a className="btn btn-danger" target="_blank" rel="nofollow" href={`http://localhost:3050/gauchitoAPIS/productos/${arrayProductos.id}`}>Detalle</a>
